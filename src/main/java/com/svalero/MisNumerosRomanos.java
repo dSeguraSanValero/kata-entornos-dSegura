@@ -7,10 +7,10 @@ public class MisNumerosRomanos {
     public static String convertirNumeroRomano(int numeroDecimal) {
 
         ArrayList<String> numerosRomanos = new ArrayList<String>();
-        String[] simbolosRomanos = {"L", "XL", "X", "IX", "V", "IV", "I"};
+        String[] simbolosRomanos = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
         // valores decimales correspondientes a cada símbolo romano
-        int[] valoresDecimales = {50, 40, 10, 9, 5, 4, 1};
+        int[] valoresDecimales = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
         // iterar por cada símbolo romano
         for (int i = 0; i < simbolosRomanos.length; i++) {
