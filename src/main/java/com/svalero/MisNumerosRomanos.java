@@ -1,32 +1,28 @@
 package com.svalero;
 
 
+import java.util.ArrayList;
+
 public class MisNumerosRomanos {
     public static String convertirNumeroRomano(int numeroDecimal) {
-        String numeroRomano = null;
-        
-        if (numeroDecimal == 1) {
-            numeroRomano = "I";
 
-        } else if (numeroDecimal == 2) {
-            numeroRomano = "II";
+        ArrayList<String> numerosRomanos = new ArrayList<String>();
+        String[] simbolosRomanos = {"L", "XL", "X", "IX", "V", "IV", "I"};
 
-        } else if (numeroDecimal == 3) {
-            numeroRomano = "III";
+        // valores decimales correspondientes a cada símbolo romano
+        int[] valoresDecimales = {50, 40, 10, 9, 5, 4, 1};
 
-        } else if (numeroDecimal == 4) {
-            numeroRomano = "IV";
-
-        } else if (numeroDecimal == 5) {
-            numeroRomano = "V";
-
-        } else if (numeroDecimal == 6) {
-            numeroRomano = "VI";
-
-        } else if (numeroDecimal == 7) {
-            numeroRomano = "VII";
-
+        // iterar por cada símbolo romano
+        for (int i = 0; i < simbolosRomanos.length; i++) {
+            // mientras el número decimal sea mayor o igual al valor decimal del símbolo romano actual
+            while (numeroDecimal >= valoresDecimales[i]) {
+                numerosRomanos.add(simbolosRomanos[i]); // añadir el símbolo romano a la lista
+                numeroDecimal -= valoresDecimales[i]; // restar el valor decimal del símbolo romano al número decimal
+            }
         }
+
+        // unir los símbolos romanos en un string y mostrar el resultado
+        String numeroRomano = String.join("", numerosRomanos);
         return numeroRomano;
     }
 }
